@@ -1,0 +1,253 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>چهار گزینه</title>
+    <script src="../scripts/jquery-3.3.1.js"></script>
+    <style type="text/css">
+        
+        form{
+            /*display:none;*/
+        }
+
+        .group-btn{
+            height:30px;
+            width:auto;
+            background: #ffd800;
+            
+        }
+        .hide-btn,.show-btn,.next,.register{
+            position:relative;
+            right:450px;
+            margin-top:5px;
+        }
+        .normal,.fast,.slow,.very-slow,.very-fast{
+              padding: 15px;
+            background: #F0E68C;
+            display:none;
+        }
+        /*یک باکس اولیه اما بعدا که روی دکمه شو و هاید کلیک میکنی با انیمیشن تغییر میده*/
+           .box {
+            width: auto;
+            height: 300px;
+            background: #9d7ede;
+            margin-top: 30px;
+            /*برای اینکه با انیمیشن بتوان حاشیه را تغییر داد باید این را بنویسیم*/
+            border-style: solid; /* Required to animate border width */
+            border-color: #6f40ce;
+                        /*برای اینکه بتوان به چپ یا راست با انیمیشن حرکت کنیم باید این را بنویسیم*/
+
+            position: relative; 
+            
+        }
+           /*یک متن اولیه در باکس اولیه داریم که خوشآمد گویی میکنه*/
+           .textfirst{
+               text-align:center;
+               font-family:Lato;
+               font-size:xx-large;
+                   position:relative;
+                   top:50px;
+           }
+
+    </style>
+    <script type="text/javascript">
+$(document).ready(function(){
+    // Hide displayed paragraphs with different speeds
+    $(".hide-btn").click(function () {
+        
+
+        $("p.normal").fadeOut();
+        $("p.fast").fadeOut("fast");
+        $("p.slow").fadeOut("slow");
+        $("p.very-slow").fadeOut(2000);
+        $("p.very-fast").fadeOut(50);
+        //میخواهیم متن خوشامدگویی روی دکمه که کلیک کردی از بین بره
+        $("p.textfirst").fadeOut();
+      
+    });
+
+    // Show hidden paragraphs with different speeds
+    $(".show-btn").click(function () {
+        $("p.very-fast").fadeIn(50);
+        $("p.normal").fadeIn();
+        $("p.fast").fadeIn("fast");
+        $("p.slow").fadeIn("slow");
+        $("p.very-slow").fadeIn(2000);
+        //میخواهیم متن خوشامدگویی روی دکمه که کلیک کردی از بین بره
+
+        $("p.textfirst").fadeOut();
+
+
+    });
+});
+
+        //در این فایل فرق میکنه انیمیشن ها رو تک تک دادی پس تک تک انجام میشه نه یکباره با هم
+        //باکس را نشان میدهی با انیمیشن تغییرش میدی
+$(document).ready(function () {
+    $(".show-btn").click(function () {
+        $(".box").animate({ width: "1100px" })
+.animate({ height: "400px" })
+.animate({ right: "50px" })
+       //حواست باشه که اینجوری مارجین را بنویسی
+
+       .animate({ marginTop: "80px" })
+       //حواست باشه حاشیه را اینجوری بنویسی
+
+       .animate({ borderWidth: "10px" })
+   .animate({ opacity: 0.5 });
+    });
+});
+
+
+$(document).ready(function () {
+    $(".hide-btn").click(function () {
+        $(".box").animate({width: "1100px"})
+.animate({height: "400px"})
+.animate({right: "50px"})
+            //حواست باشه که اینجوری مارجین را بنویسی
+
+            .animate({marginTop: "80px"})
+            //حواست باشه حاشیه را اینجوری بنویسی
+
+            .animate({borderWidth: "10px"})
+        .animate({opacity: 0.5});
+        });
+    });
+
+//وقتی را کلیک میکنی بپرسه مطمینی دکمه next
+$(document).ready(function () {
+
+
+    $(".next").click(function () {
+
+        alert("آیا اطمینان کامل دارید؟");
+
+    });
+});
+//وقتی کلیک میکنی روی کلیک بعدی برود به صفحه بعدی 
+
+$(document).ready(function () {
+    $(".next").click(function () {
+        window.location.href = "http://localhost:3337/html/index4.html";
+    });
+});
+
+$('document').ready(
+function () {
+    $('input:radio').click(
+        function () {
+            //اول چک بکن ببین که مقدار رادیو باتنی که انتخاب میکنی چقدر است
+            if ($(this).val() === '1') {
+                //در این متن بستگی به انتخاب رادیو باتنمتن کناری قرمز رنگ میشود
+
+                $(".normal").addClass("highlight2");
+                $(".fast").removeClass("highlight2");
+                $(".slow").removeClass("highlight2");
+                $(".very-slow").removeClass("highlight2");
+            }
+            else if ($(this).val() === '2') {
+
+                $(".fast").addClass("highlight2");
+                $(".normal").removeClass("highlight2");
+                $(".slow").removeClass("highlight2");
+                $(".very-slow").removeClass("highlight2");
+            }
+            else if ($(this).val() === '3') {
+                $(".slow").addClass("highlight2");
+                $(".normal").removeClass("highlight");
+                $(".fast").removeClass("highlight");
+                $(".very-slow").removeClass("highlight");
+            }
+            else if ($(this).val() === '4') {
+                $(".very-slow").addClass("highlight2");
+                $(".normal").removeClass("highlight2");
+                $(".fast").removeClass("highlight2");
+                $(".slow").removeClass("highlight2");
+
+            }
+
+        }
+    );
+}
+);
+       
+    </script>
+</head>
+<body dir="rtl">
+    <!--Durations can be specified either using one of the predefined string 'slow' or 'fast', or in a number of milliseconds-->
+    <!--The speed or duration string 'fast' indicates the durations of 200 milliseconds,
+        while the string 'slow' indicates the durations of 600 milliseconds.-->
+    <div class="group-btn">
+        <button type="button" class="hide-btn">hide question</button>
+        <button type="button" class="show-btn">Show question </button>
+        <button type="button" class="next">next </button>
+        <button type="button" class="register" onclick="send()">register </button>
+    </div>
+    <div class="box">
+        
+        <form>
+            <div >
+                <p class="very-fast">
+
+                    3- کاربردافکت ( ) fadeOut در jqueryچیست؟
+
+                </p>
+
+
+                <p class="normal">
+                    <input type="radio" name="soal3" value="1" />
+
+                    افکت fadeOut باعث می شود تا عنصر مورد اثر آن به تدریج از حالت نمایان به حالت مخفی در بیاید. این افکت در یک افکت تصویری با کم کردن نور عنصر به تدریج باعث مخفی شدن آن از دید کاربر می شود .
+
+                </p>
+
+                <p class="fast">
+                    <input type="radio" name="soal3" value="2" />
+
+
+                    افکت fadeOut باعث می شود تا عنصر مورد اثر آن به تدریج از حالت نمایان به حالت مخفی در بیاید. این افکت در یک افکت تصویری با کم کردن نور عنصر به تدریج باعث مخفی شدن آن از دید کاربر می شود .
+
+                </p>
+
+                <p class="slow">
+                    <input type="radio" name="soal3" value="3" />
+
+                    افکت fadeOut باعث می شود تا عنصر مورد اثر آن به تدریج از حالت نمایان به حالت مخفی در بیاید. این افکت در یک افکت تصویری با کم کردن نور عنصر به تدریج باعث مخفی شدن آن از دید کاربر می شود .
+
+                </p>
+                
+                <p class="very-slow">
+                    <input type="radio" name="soal3" value="4" />
+
+                    افکت fadeOut باعث می شود تا عنصر مورد اثر آن به تدریج از حالت نمایان به حالت مخفی در بیاید. این افکت در یک افکت تصویری با کم کردن نور عنصر به تدریج باعث مخفی شدن آن از دید کاربر می شود .
+
+                </p>
+              
+               
+            </div>
+           
+
+        </form>
+        </div>
+    <script src="javascript.js"></script>
+    <script>
+        function send() {
+            var soal3 = document.getElementsByName("soal3");
+          
+            if (soal3[2].checked == true) {
+                alert(["shoma be in soal javab dorost dadeid dadid"]);
+            }
+            else {
+                alert(["shoma be in soal javab ghalat dadeid"]);
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+

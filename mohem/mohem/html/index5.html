@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>چهار گزینه</title>
+    <script src="../scripts/jquery-3.3.1.js"></script>
+    <link href="stylesheet1.css" rel="stylesheet" />
+    <script type="text/javascript">
+$(document).ready(function(){
+ 
+
+    // Show hidden paragraphs with different speeds
+    $(".show-btn").click(function () {
+        $("p.very-fast").show(50);
+        $("p.normal").show();
+        $("p.fast").show("fast");
+        $("p.slow").show("slow");
+        $("p.very-slow").show(2000);
+        //میخواهیم متن خوشامدگویی روی دکمه که کلیک کردی از بین بره
+        $("p.textfirst").fadeOut();
+
+    });
+});
+//این پنل با بقیه فرق دادرد به جای اینکه دکمه پنهان و پیدا جدا باسن داخل یک انیمیشن هستند مستوان وسط سوالها را نگه داشت
+$(document).ready(function () {
+    $(".show-btn").click(function () {
+        $(".box").stop().slideToggle(1000);
+    });
+});
+//وقتی را کلیک میکنی بپرسه مطمینی دکمه next
+$(document).ready(function () {
+
+
+    $(".next").click(function () {
+
+        alert("آیا اطمینان کامل دارید؟");
+
+    });
+});
+//وقتی کلیک میکنی روی کلیک بعدی برود به صفحه بعدی 
+
+$(document).ready(function () {
+    $(".next").click(function () {
+        window.location.href = "http://localhost:3337/html/index6.html";
+    });
+});
+
+
+$('document').ready(
+function () {
+    $('input:radio').click(
+        function () {
+            //اول چک بکن ببین که مقدار رادیو باتنی که انتخاب میکنی چقدر است
+            if ($(this).val() === '1') {
+                //در این متن بستگی به انتخاب رادیو باتنمتن کناری قرمز رنگ میشود
+
+                $(".normal").addClass("highlight");
+                $(".fast").removeClass("highlight");
+                $(".slow").removeClass("highlight");
+                $(".very-slow").removeClass("highlight");
+            }
+            else if ($(this).val() === '2') {
+
+                $(".fast").addClass("highlight");
+                $(".normal").removeClass("highlight");
+                $(".slow").removeClass("highlight");
+                $(".very-slow").removeClass("highlight");
+            }
+            else if ($(this).val() === '3') {
+                $(".slow").addClass("highlight");
+                $(".normal").removeClass("highlight");
+                $(".fast").removeClass("highlight");
+                $(".very-slow").removeClass("highlight");
+            }
+            else if ($(this).val() === '4') {
+                $(".very-slow").addClass("highlight");
+                $(".normal").removeClass("highlight");
+                $(".fast").removeClass("highlight");
+                $(".slow").removeClass("highlight");
+
+            }
+
+        }
+    );
+}
+);
+    </script>
+</head>
+<body dir="rtl">
+    <!--Durations can be specified either using one of the predefined string 'slow' or 'fast', or in a number of milliseconds-->
+    <!--The speed or duration string 'fast' indicates the durations of 200 milliseconds,
+        while the string 'slow' indicates the durations of 600 milliseconds.-->
+    <div class="group-btn">
+      
+        <button type="button" class="show-btn">Show  and hide question </button>
+        <button type="button" class="next">next </button>
+        <button type="button" class="register" onclick="send()">register </button>
+    </div>
+    <div class="box">
+        <form>
+            <div>
+                <p class="very-fast">
+                    5-  کاربردرویداد mouseenter در jqueryچیست؟
+
+
+                </p>
+
+
+                <p class="normal">
+                    <input type="radio" name="soal5" value="1" />
+
+                    رویداد mouseenter زمانی اتفاق می افتد که اشاره گر ماوس وارد محتوای تگ html می شود.
+
+                </p>
+
+                <p class="fast">
+                    <input type="radio" name="soal5" value="2" />
+
+                    رویداد mouseenter زمانی اتفاق می افتد که اشاره گر ماوس وارد محتوای تگ html می شود.
+
+
+                </p>
+
+                <p class="slow">
+                    <input type="radio" name="soal5" value="3" />
+
+                    رویداد mouseenter زمانی اتفاق می افتد که اشاره گر ماوس وارد محتوای تگ html می شود.
+
+                </p>
+
+                <p class="very-slow">
+                    <input type="radio" name="soal5" value="4" />
+                    رویداد mouseenter زمانی اتفاق می افتد که اشاره گر ماوس وارد محتوای تگ html می شود.
+
+                </p>
+
+
+            </div>
+
+        </form>
+        </div>
+    <script src="javascript.js"></script>
+    <script>
+        function send() {
+            var soal5 = document.getElementsByName("soal5");
+          
+            if (soal5[2].checked == true) {
+                alert(["shoma be in soal javab dorost dadeid dadid"]);
+            }
+            else {
+                alert(["shoma be in soal javab ghalat dadeid"]);
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>
+
+

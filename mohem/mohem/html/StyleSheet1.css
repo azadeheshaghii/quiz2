@@ -1,0 +1,60 @@
+﻿/*یک باکس برای تمامی باتن ها ایجاد میکین که داخا اون قرار بگیره باتن ها یک دیو*/
+
+.group-btn{
+            height:30px;
+            width:auto;
+            background: #ffd800;
+            
+        }
+/*برای اینکه جهت و جای باتن ها رو روی توی دیو بالا مشخص کنیم*/
+        .hide-btn,.show-btn,.score,.next,.register{
+            position:relative;
+            right:450px;
+            margin-top:5px;
+        }
+        /*برای اینکه اول کار که صفحه بالا میاد سوال و جوابها نباشند و به محض اینکه ان را با جی کویری صدا زدیم نشان داده و پاک شوند برای اینکه نباشه باید دیسپلی را پاک کنیم*/
+        .normal,.fast,.slow,.very-slow,.very-fast{
+              padding: 15px;
+            background: #F0E68C;
+            display:none;
+        }
+        /*یک باکس اولیه اما بعدا که روی دکمه شو و هاید کلیک میکنی با انیمیشن تغییر میده*/
+          .box {
+            width: auto;
+            height: 400px;
+            background: #9d7ede;
+            margin-top: 30px;
+            /*برای اینکه با انیمیشن بتوان حاشیه را تغییر داد باید این را بنویسیم*/
+            border-style: solid; /* Required to animate border width */
+            border-color: #6f40ce;
+            /*برای اینکه بتوان به چپ یا راست با انیمیشن حرکت کنیم باید این را بنویسیم*/
+            position: relative; 
+            
+        }
+
+           .textfirst{
+               text-align:center;
+               font-family:Lato;
+               font-size:xx-large;
+                   position:relative;
+                   top:50px;
+           }
+
+                   .test {
+            padding: 400px;
+            background: yellow;
+        }
+                  
+      
+
+        .highlight {
+            background: yellow;
+            color: red;
+            text-transform: uppercase;
+        }
+
+          .highlight2 {
+            background: #ff6a00;
+            color: red;
+            text-transform: uppercase;
+        }
